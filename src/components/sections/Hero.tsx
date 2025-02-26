@@ -22,12 +22,12 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     justify-content: flex-start;
-    padding-top: 9rem;
+    padding-top: 8.5rem;
   }
   
   @media (max-width: 520px) {
     padding: 0 1rem;
-    padding-top: 8rem;
+    padding-top: 7.5rem;
   }
 `
 
@@ -270,13 +270,13 @@ const SocialLinks = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 9rem;
+    margin-bottom: 6rem;
     gap: 3rem;
   }
   
   @media (max-width: 520px) {
     margin-top: 1.5rem;
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
     gap: 2.5rem;
   }
 `
