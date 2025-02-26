@@ -22,12 +22,14 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     justify-content: flex-start;
-    padding-top: 8.5rem;
+    padding-top: 0;
+    margin-top: 4.5rem;
   }
   
   @media (max-width: 520px) {
     padding: 0 1rem;
-    padding-top: 7.5rem;
+    padding-top: 0;
+    margin-top: 4rem;
   }
 `
 
@@ -270,13 +272,13 @@ const SocialLinks = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: 4.5rem;
     gap: 3rem;
   }
   
   @media (max-width: 520px) {
     margin-top: 1.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
     gap: 2.5rem;
   }
 `
@@ -331,13 +333,14 @@ const PhotoContainer = styled(motion.div)`
     width: 80%;
     max-width: 350px;
     margin-bottom: 0.5rem;
-    margin-top: 0;
+    margin-top: 4rem;
   }
   
   @media (max-width: 520px) {
     width: 85%;
     max-width: 300px;
     margin-bottom: 0.5rem;
+    margin-top: 3.5rem;
   }
 `
 
