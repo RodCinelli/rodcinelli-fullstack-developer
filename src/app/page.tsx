@@ -1,7 +1,7 @@
 'use client'
 
+/* next-dynamic-once render=dynamic */
 import dynamicImport from 'next/dynamic'
-import { dynamic, fetchCache, revalidate } from './config'
 
 // Componentes de layout
 const Navbar = dynamicImport(() => import('../components/layout/Navbar'), { ssr: false })
@@ -14,9 +14,6 @@ const Skills = dynamicImport(() => import('../components/sections/Skills'), { ss
 const Projects = dynamicImport(() => import('../components/sections/Projects'), { ssr: false })
 const Experience = dynamicImport(() => import('../components/sections/Experience'), { ssr: false })
 const Contact = dynamicImport(() => import('../components/sections/Contact'), { ssr: false })
-
-// Exporta as configurações para renderização dinâmica
-export { dynamic, fetchCache, revalidate }
 
 export default function Home() {
   return (

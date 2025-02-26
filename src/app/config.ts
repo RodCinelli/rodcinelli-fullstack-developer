@@ -1,13 +1,14 @@
-// Configurações para desativar a renderização estática e forçar a renderização dinâmica
-// Next.js irá usar estas exportações para configurar o comportamento de páginas e layouts
+// NOTA: Este arquivo agora é apenas para referência
+// As configurações reais estão definidas diretamente nos arquivos layout.tsx e page.tsx
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
-export const revalidate = 0
+// Valores de referência para configurações do Next.js
+const dynamicValue = 'force-dynamic'
+const fetchCacheValue = 'force-no-store'
+const revalidateValue = 0
 
-// Exportar também como nomes alternativos para uso com importação
-export const dynamicConfig = {
-  dynamic: 'force-dynamic',
-  fetchCache: 'force-no-store',
-  revalidate: 0
+// Objeto de configuração para referência
+export const configValues = {
+  dynamic: dynamicValue,
+  fetchCache: fetchCacheValue,
+  revalidate: revalidateValue
 } 
