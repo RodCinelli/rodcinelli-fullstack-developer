@@ -264,22 +264,7 @@ const SocialLinks = styled(motion.div)`
   gap: 1.5rem;
   
   @media (max-width: 768px) {
-    position: relative;
-    left: auto;
-    top: auto;
-    bottom: auto;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 0rem;
-    gap: 3rem;
-  }
-  
-  @media (max-width: 520px) {
-    margin-top: 1.5rem;
-    margin-bottom: 0rem;
-    gap: 2.5rem;
+    display: none; /* Esconde na versão mobile */
   }
 `
 
@@ -298,6 +283,10 @@ const SocialLink = styled(motion.a)`
   @media (max-width: 768px) {
     font-size: 1.8rem;
   }
+  
+  @media (max-width: 370px) {
+    font-size: 1.6rem;
+  }
 `
 
 const ScrollIndicator = styled(motion.div)`
@@ -311,11 +300,7 @@ const ScrollIndicator = styled(motion.div)`
   cursor: pointer;
   
   @media (max-width: 768px) {
-    display: none;
-  }
-  
-  @media (max-width: 520px) {
-    display: none;
+    display: none; /* Esconde na versão mobile */
   }
 `
 
@@ -462,6 +447,102 @@ const BackgroundCircle = styled(motion.div)<{ size: string; top: string; left: s
   opacity: ${({ opacity }) => opacity};
   z-index: 1;
   filter: blur(8px);
+`
+
+// Nova abordagem: Container para o modo responsivo
+const MobileActionsContainer = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  @media (max-width: 520px) {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+`
+
+const MobileSocialContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  grid-column: span 2;
+  padding: 0 1rem;
+  
+  @media (max-width: 520px) {
+    padding: 0 0.5rem;
+  }
+`
+
+const MobileScrollContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  grid-column: span 2;
+  margin-top: 2rem;
+  
+  @media (max-width: 520px) {
+    margin-top: 1.5rem;
+  }
+`
+
+// Nova abordagem para mobile - simples e direta
+const MobileFooter = styled.div`
+  display: none;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem; /* Aumentando margem inferior */
+  position: relative;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 520px) {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+`
+
+const MobileSocialBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem; /* Mais espaço nas laterais */
+  
+  @media (max-width: 520px) {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  @media (max-width: 370px) {
+    padding: 0 0.5rem;
+  }
+`
+
+const MobileScrollIndicator = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(3px);
+  }
 `
 
 export default function Hero() {
@@ -792,45 +873,6 @@ export default function Hero() {
               <FaFileDownload style={{ fontSize: '0.9rem' }} /> Download CV
             </TertiaryButton>
           </ButtonsContainer>
-          
-          <SocialLinks
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={socialAnimation}
-            className="social-links-mobile"
-          >
-            <SocialLink 
-              href="https://github.com/RodCinelli" 
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={socialItemAnimation}
-              whileHover={{ 
-                scale: 1.2,
-                y: -5,
-                filter: 'drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5))',
-                transition: { duration: 0.2 }
-              }}
-              aria-label="GitHub"
-            >
-              <FaGithub />
-            </SocialLink>
-            
-            <SocialLink 
-              href="https://www.linkedin.com/in/rodrigo-cinelli" 
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={socialItemAnimation}
-              whileHover={{ 
-                scale: 1.2,
-                y: -5,
-                filter: 'drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5))',
-                transition: { duration: 0.2 }
-              }}
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </SocialLink>
-          </SocialLinks>
         </HeroContent>
         
         <PhotoContainer
@@ -865,16 +907,53 @@ export default function Hero() {
         </PhotoContainer>
       </HeroContainer>
       
+      {/* Versão Desktop */}
+      <SocialLinks
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={socialAnimation}
+      >
+        <SocialLink 
+          href="https://github.com/RodCinelli" 
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={socialItemAnimation}
+          whileHover={{ 
+            scale: 1.2,
+            y: -5,
+            filter: 'drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5))',
+            transition: { duration: 0.2 }
+          }}
+          aria-label="GitHub"
+        >
+          <FaGithub />
+        </SocialLink>
+        
+        <SocialLink 
+          href="https://www.linkedin.com/in/rodrigo-cinelli" 
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={socialItemAnimation}
+          whileHover={{ 
+            scale: 1.2,
+            y: -5,
+            filter: 'drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5))',
+            transition: { duration: 0.2 }
+          }}
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin />
+        </SocialLink>
+      </SocialLinks>
+      
       <ScrollIndicator
         onClick={handleScrollClick}
         variants={scrollAnimation}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="scroll-indicator"
       >
         <motion.span
-          style={{ fontSize: '0.8rem', marginBottom: '0.5rem' }}
-          className="scroll-text"
+          style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}
         >
           Rolar para baixo
         </motion.span>
@@ -888,11 +967,74 @@ export default function Hero() {
             duration: 2.5,
             ease: "easeInOut" 
           }}
-          className="scroll-arrow"
         >
-          <FaArrowDown />
+          <FaArrowDown style={{ fontSize: '1.2rem' }} />
         </motion.div>
       </ScrollIndicator>
+      
+      {/* Versão Mobile */}
+      <MobileFooter>
+        <MobileSocialBar>
+          <SocialLink 
+            href="https://github.com/RodCinelli" 
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ 
+              scale: 1.2,
+              y: -5,
+              transition: { duration: 0.2 }
+            }}
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </SocialLink>
+          
+          <SocialLink 
+            href="https://www.linkedin.com/in/rodrigo-cinelli" 
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ 
+              scale: 1.2,
+              y: -5,
+              transition: { duration: 0.2 }
+            }}
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </SocialLink>
+        </MobileSocialBar>
+        
+        <MobileScrollIndicator onClick={handleScrollClick}>
+          <motion.span
+            style={{ 
+              fontSize: '0.95rem', 
+              marginBottom: '0.6rem',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+              fontWeight: '500',
+              letterSpacing: '0.5px'
+            }}
+          >
+            Rolar para baixo
+          </motion.span>
+          <motion.div
+            animate={{ 
+              y: [0, 8, 0], 
+              opacity: [0.7, 1, 0.7] 
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2.5,
+              ease: "easeInOut" 
+            }}
+            style={{
+              filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3))',
+              fontSize: '1.3rem'
+            }}
+          >
+            <FaArrowDown />
+          </motion.div>
+        </MobileScrollIndicator>
+      </MobileFooter>
     </HeroSection>
   )
 }
