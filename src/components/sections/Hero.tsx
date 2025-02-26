@@ -307,19 +307,11 @@ const ScrollIndicator = styled(motion.div)`
   cursor: pointer;
   
   @media (max-width: 768px) {
-    bottom: 1rem;
+    display: none;
   }
   
   @media (max-width: 520px) {
-    bottom: 0.8rem;
-    
-    span {
-      font-size: 0.7rem;
-    }
-    
-    svg {
-      font-size: 0.9rem;
-    }
+    display: none;
   }
 `
 
