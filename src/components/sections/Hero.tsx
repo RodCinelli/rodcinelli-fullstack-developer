@@ -741,7 +741,7 @@ export default function Hero() {
           <Description
             variants={descriptionAnimation}
           >
-            Bem vindo ao meu portfólio, se você chegou até aqui, meus parabéns! Agora pegue um café e curta a estadia.
+            Bem vindo ao meu portfólio! Agora pegue um café e venha curtir um pouco do meu trabalho.
           </Description>
           
           <ButtonsContainer
