@@ -270,13 +270,13 @@ const SocialLinks = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
     gap: 3rem;
   }
   
   @media (max-width: 520px) {
     margin-top: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
     gap: 2.5rem;
   }
 `
