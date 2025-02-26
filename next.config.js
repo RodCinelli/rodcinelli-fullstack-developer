@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compiler: {
-    styledComponents: {
-      ssr: true,
-      displayName: true,
-      minify: true
-    }
-  }
+    styledComponents: true,
+  },
+  // Configurações adicionais, se houver
 }
 
 module.exports = nextConfig 
