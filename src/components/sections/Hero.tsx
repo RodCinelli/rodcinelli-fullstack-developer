@@ -22,12 +22,12 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     justify-content: flex-start;
-    padding-top: 6rem;
+    padding-top: 4rem;
   }
   
   @media (max-width: 520px) {
     padding: 0 1rem;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
   }
 `
 
@@ -270,13 +270,13 @@ const SocialLinks = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     gap: 3rem;
   }
   
   @media (max-width: 520px) {
     margin-top: 1.5rem;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
     gap: 2.5rem;
   }
 `
@@ -741,7 +741,7 @@ export default function Hero() {
           <Description
             variants={descriptionAnimation}
           >
-            Bem vindo ao meu portfólio, se você chegou até aqui, é porque você é incrível! Agora pegue um café e curta a estadia.
+            Bem vindo ao meu portfólio, se você chegou até aqui, meus parabéns! Agora pegue um café e curta a estadia.
           </Description>
           
           <ButtonsContainer
