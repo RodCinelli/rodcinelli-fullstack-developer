@@ -265,6 +265,17 @@ const CompetenciesContainer = styled(motion.div)`
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.7rem;
+  }
 `
 
 const CompetencyItem = styled(motion.div)`
@@ -275,6 +286,11 @@ const CompetencyItem = styled(motion.div)`
   background: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: flex-start;
+    gap: 0.6rem;
+  }
 `
 
 const CompetencyIcon = styled.div<{ color: string }>`
@@ -287,6 +303,7 @@ const CompetencyIcon = styled.div<{ color: string }>`
   justify-content: center;
   color: white;
   font-size: 1rem;
+  flex-shrink: 0;
 `
 
 const CompetencyName = styled.h4`
@@ -294,6 +311,10 @@ const CompetencyName = styled.h4`
   font-weight: 600;
   margin: 0;
   color: ${({ theme }) => theme.colors.text};
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 0.85rem;
+  }
 `
 
 const fadeIn = {
@@ -367,6 +388,8 @@ export default function About() {
   const youtubeVideoId = "jJxkYRlcbYk"
 
   const competencies = [
+    { name: 'HTML', icon: <FaCode />, color: '#E34F26' },
+    { name: 'CSS', icon: <FaCode />, color: '#1572B6' },
     { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E' },
     { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
     { name: 'React.js', icon: <FaReact />, color: '#61DAFB' },
