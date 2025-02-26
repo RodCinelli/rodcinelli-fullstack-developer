@@ -27,6 +27,9 @@ export function ThemeContainer({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
   
+  // Define o tema inicial com o lightTheme
+  const [currentTheme, setCurrentTheme] = useState<Theme>(lightTheme);
+  
   useEffect(() => {
     setMounted(true);
     try {
@@ -34,11 +37,14 @@ export function ThemeContainer({ children }: { children: React.ReactNode }) {
       const savedTheme = localStorage.getItem('theme');
       
       if (savedTheme) {
-        setIsDarkMode(savedTheme === 'dark');
+        const newIsDarkMode = savedTheme === 'dark';
+        setIsDarkMode(newIsDarkMode);
+        setCurrentTheme(newIsDarkMode ? darkTheme : lightTheme);
       } else if (typeof window !== 'undefined') {
         // Verifica preferência do sistema apenas no cliente
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         setIsDarkMode(prefersDark);
+        setCurrentTheme(prefersDark ? darkTheme : lightTheme);
         localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
       }
     } catch (error) {
@@ -50,6 +56,7 @@ export function ThemeContainer({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     const newThemeValue = !isDarkMode;
     setIsDarkMode(newThemeValue);
+    setCurrentTheme(newThemeValue ? darkTheme : lightTheme);
     
     try {
       localStorage.setItem('theme', newThemeValue ? 'dark' : 'light');
@@ -77,16 +84,13 @@ export function ThemeContainer({ children }: { children: React.ReactNode }) {
       }
     }
   }, [isDarkMode, mounted]);
-
-  // Selecione o tema com base no estado atual
-  const theme = isDarkMode ? darkTheme : lightTheme;
   
   // Sempre disponibilize o tema no contexto
-  const contextValue = { isDarkMode, toggleTheme, theme };
+  const contextValue = { isDarkMode, toggleTheme, theme: currentTheme };
   
   return (
     <ThemeContext.Provider value={contextValue}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         {children}
       </ThemeProvider>

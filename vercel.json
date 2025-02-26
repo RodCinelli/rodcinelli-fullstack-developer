@@ -1,0 +1,17 @@
+{
+  "buildCommand": "next build",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "regions": ["iad1"],
+  "images": {
+    "sizes": [640, 750, 828, 1080, 1200, 1920],
+    "domains": [],
+    "minimumCacheTTL": 60
+  },
+  "build": {
+    "env": {
+      "NEXT_DISABLE_STATICS": "true",
+      "NEXT_FORCE_DYNAMIC": "true"
+    }
+  }
+} 
