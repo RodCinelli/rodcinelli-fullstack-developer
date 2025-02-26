@@ -6,8 +6,7 @@ const nextConfig = {
   // Desabilitar a geração estática
   output: 'standalone', // Preferido para Vercel
   experimental: {
-    // Forçar todas as páginas a serem renderizadas sob demanda, não estaticamente
-    runtime: 'nodejs',
+    // Remover runtime nodejs que não é válido
   },
   // Configurar a flag para informar o Next.js para não renderizar estaticamente
   env: {

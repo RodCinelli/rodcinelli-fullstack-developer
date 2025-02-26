@@ -2,6 +2,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import StyledComponentsRegistry from '../lib/registry'
 import { ThemeContainer } from '../components/providers/ThemeContainer'
 import { metadata } from './metadata'
+import { dynamic, fetchCache, revalidate } from './config'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,10 +21,8 @@ export const viewport = {
   initialScale: 1.0,
 }
 
-// Forçar renderização dinâmica e desabilitar a renderização estática
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
-export const revalidate = 0
+// Exportar as configurações de renderização dinâmica
+export { dynamic, fetchCache, revalidate }
 
 export default function RootLayout({
   children,

@@ -1,23 +1,22 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import dynamicImport from 'next/dynamic'
+import { dynamic, fetchCache, revalidate } from './config'
 
 // Componentes de layout
-const Navbar = dynamic(() => import('../components/layout/Navbar'), { ssr: false })
-const Footer = dynamic(() => import('../components/layout/Footer'), { ssr: false })
+const Navbar = dynamicImport(() => import('../components/layout/Navbar'), { ssr: false })
+const Footer = dynamicImport(() => import('../components/layout/Footer'), { ssr: false })
 
 // Componentes de seção
-const Hero = dynamic(() => import('../components/sections/Hero'), { ssr: false })
-const About = dynamic(() => import('../components/sections/About'), { ssr: false })
-const Skills = dynamic(() => import('../components/sections/Skills'), { ssr: false })
-const Projects = dynamic(() => import('../components/sections/Projects'), { ssr: false })
-const Experience = dynamic(() => import('../components/sections/Experience'), { ssr: false })
-const Contact = dynamic(() => import('../components/sections/Contact'), { ssr: false })
+const Hero = dynamicImport(() => import('../components/sections/Hero'), { ssr: false })
+const About = dynamicImport(() => import('../components/sections/About'), { ssr: false })
+const Skills = dynamicImport(() => import('../components/sections/Skills'), { ssr: false })
+const Projects = dynamicImport(() => import('../components/sections/Projects'), { ssr: false })
+const Experience = dynamicImport(() => import('../components/sections/Experience'), { ssr: false })
+const Contact = dynamicImport(() => import('../components/sections/Contact'), { ssr: false })
 
-// Desativa a renderização estática para esta página
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
-export const revalidate = 0
+// Exporta as configurações para renderização dinâmica
+export { dynamic, fetchCache, revalidate }
 
 export default function Home() {
   return (
