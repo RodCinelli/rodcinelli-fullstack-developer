@@ -212,6 +212,74 @@ const MobileMenuButton = styled(motion.button)<{ isScrolled?: boolean }>`
   
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: flex;
+    background: ${({ theme, isScrolled }) => theme.colors.background === '#F8F8FF' 
+      ? isScrolled ? 'rgba(75, 0, 130, 0.1)' : 'rgba(255, 255, 255, 0.2)'
+      : isScrolled ? 'rgba(155, 106, 235, 0.1)' : 'rgba(255, 255, 255, 0.2)'
+    };
+    border: none;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+`
+
+const DesktopIcon = styled.div`
+  display: block;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`
+
+const MenuIcon = styled.div<{ isOpen: boolean }>`
+  width: 24px;
+  height: 20px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  display: none;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: block;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: ${({ theme, isOpen }) => theme.colors.background === '#F8F8FF' 
+      ? isOpen ? '#4B0082' : '#FFFFFF'
+      : isOpen ? theme.colors.primary : '#FFFFFF'
+    };
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    
+    &:nth-child(1) {
+      top: ${({ isOpen }) => isOpen ? '9px' : '0px'};
+      transform: ${({ isOpen }) => isOpen ? 'rotate(135deg)' : 'rotate(0deg)'};
+    }
+    
+    &:nth-child(2) {
+      top: 9px;
+      opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
+      width: ${({ isOpen }) => isOpen ? '0%' : '100%'};
+      left: ${({ isOpen }) => isOpen ? '50%' : '0'};
+    }
+    
+    &:nth-child(3) {
+      top: ${({ isOpen }) => isOpen ? '9px' : '18px'};
+      transform: ${({ isOpen }) => isOpen ? 'rotate(-135deg)' : 'rotate(0deg)'};
+    }
   }
 `
 
@@ -441,7 +509,17 @@ export default function Navbar() {
           whileTap={{ scale: 0.9 }}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          {/* Ícones para visualização desktop (caso a tela seja redimensionada) */}
+          <DesktopIcon>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </DesktopIcon>
+          
+          {/* MenuIcon personalizado para visualização mobile */}
+          <MenuIcon isOpen={isOpen}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </MenuIcon>
         </MobileMenuButton>
       </NavbarContainer>
 
