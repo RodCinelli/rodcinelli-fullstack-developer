@@ -22,12 +22,12 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     justify-content: flex-start;
-    padding-top: 7rem;
+    padding-top: 6.5rem;
   }
   
   @media (max-width: 520px) {
     padding: 0 1rem;
-    padding-top: 6rem;
+    padding-top: 5.5rem;
   }
 `
 
