@@ -217,10 +217,10 @@ const MobileMenuButton = styled(motion.button)<{ isScrolled?: boolean }>`
       : isScrolled ? 'rgba(155, 106, 235, 0.1)' : 'rgba(255, 255, 255, 0.2)'
     };
     border: none;
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    padding: 8px;
+    border-radius: 7px;
+    width: 38px;
+    height: 38px;
+    padding: 7px;
     cursor: pointer;
     position: relative;
     align-items: center;
@@ -238,8 +238,8 @@ const DesktopIcon = styled.div`
 `
 
 const MenuIcon = styled.div<{ isOpen: boolean }>`
-  width: 24px;
-  height: 20px;
+  width: 22px;
+  height: 18px;
   position: relative;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
@@ -252,7 +252,7 @@ const MenuIcon = styled.div<{ isOpen: boolean }>`
   span {
     display: block;
     position: absolute;
-    height: 3px;
+    height: 2.5px;
     width: 100%;
     background: ${({ theme, isOpen }) => theme.colors.background === '#F8F8FF' 
       ? isOpen ? '#4B0082' : '#FFFFFF'
@@ -265,19 +265,19 @@ const MenuIcon = styled.div<{ isOpen: boolean }>`
     transition: 0.25s ease-in-out;
     
     &:nth-child(1) {
-      top: ${({ isOpen }) => isOpen ? '9px' : '0px'};
+      top: ${({ isOpen }) => isOpen ? '8px' : '0px'};
       transform: ${({ isOpen }) => isOpen ? 'rotate(135deg)' : 'rotate(0deg)'};
     }
     
     &:nth-child(2) {
-      top: 9px;
+      top: 8px;
       opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
       width: ${({ isOpen }) => isOpen ? '0%' : '100%'};
       left: ${({ isOpen }) => isOpen ? '50%' : '0'};
     }
     
     &:nth-child(3) {
-      top: ${({ isOpen }) => isOpen ? '9px' : '18px'};
+      top: ${({ isOpen }) => isOpen ? '8px' : '16px'};
       transform: ${({ isOpen }) => isOpen ? 'rotate(-135deg)' : 'rotate(0deg)'};
     }
   }
