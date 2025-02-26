@@ -22,12 +22,12 @@ const HeroSection = styled.section`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     justify-content: flex-start;
-    padding-top: 10rem;
+    padding-top: 6rem;
   }
   
   @media (max-width: 520px) {
     padding: 0 1rem;
-    padding-top: 9rem;
+    padding-top: 5rem;
   }
 `
 
@@ -44,13 +44,13 @@ const HeroContainer = styled.div`
   
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    gap: 2.5rem;
+    gap: 2rem;
     padding-bottom: 1rem;
     margin-top: 0;
   }
   
   @media (max-width: 520px) {
-    gap: 2rem;
+    gap: 1.5rem;
     padding-bottom: 0.5rem;
   }
 `
@@ -336,7 +336,7 @@ const PhotoContainer = styled(motion.div)`
   @media (max-width: 768px) {
     width: 80%;
     max-width: 350px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     margin-top: 0;
   }
   
@@ -409,18 +409,18 @@ const PhotoFrame = styled(motion.div)`
   }
   
   @media (max-width: 768px) {
-    width: 300px;
-    height: 300px;
-  }
-  
-  @media (max-width: 520px) {
     width: 280px;
     height: 280px;
   }
   
+  @media (max-width: 520px) {
+    width: 250px;
+    height: 250px;
+  }
+  
   @media (max-width: 370px) {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
   }
 `
 
