@@ -409,19 +409,40 @@ const ActionButton = styled(motion.a)`
   font-weight: 600;
   transition: all 0.3s ease;
   
+  svg {
+    margin-right: 0;
+  }
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 0.7rem 0.8rem;
+    padding: 0.7rem 1rem;
     font-size: 0.9rem;
-    gap: 0.5rem;
+    gap: 0.8rem;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.4;
+    
+    span {
+      display: flex;
+      flex-direction: column !important;
+    }
   }
 `
 
 const PrimaryButton = styled(ActionButton)`
   background: ${({ theme }) => theme.colors.primary};
-  color: white;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(75, 0, 130, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover, &:focus {
+    color: white !important;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
+    text-align: center;
+    justify-content: center;
     
     svg {
       font-size: 0.9em;
@@ -432,7 +453,7 @@ const PrimaryButton = styled(ActionButton)`
 const SecondaryButton = styled(ActionButton)`
   background: transparent;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary} !important;
   font-size: 1rem;
   box-shadow: 0 4px 10px rgba(75, 0, 130, 0.1);
   transition: all 0.3s ease;
@@ -440,10 +461,10 @@ const SecondaryButton = styled(ActionButton)`
   max-width: 220px;
   margin: 0 auto;
   
-  &:hover {
-    background: rgba(75, 0, 130, 0.05);
-    box-shadow: 0 5px 12px rgba(75, 0, 130, 0.15);
+  &:hover, &:focus {
+    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.25);
     transform: scale(1.05);
+    color: ${({ theme }) => theme.colors.primary} !important;
   }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -451,6 +472,8 @@ const SecondaryButton = styled(ActionButton)`
     max-width: 100%;
     font-size: 0.9rem;
     padding: 0.7rem 0.8rem;
+    text-align: center;
+    justify-content: center;
     
     svg {
       font-size: 0.9em;
@@ -696,18 +719,22 @@ const GalleryThumbnail = styled(motion.div)<{ isActive: boolean }>`
 
 const TertiaryButton = styled(ActionButton)`
   background: #E83E8C; /* Cor rosa (hot pink) */
-  color: white;
+  color: white !important;
   font-size: 1rem;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 10px rgba(232, 62, 140, 0.2);
   transition: all 0.3s ease;
   border-radius: 50px;
   font-weight: 600;
+  border: none !important;
+  outline: none !important;
   
-  &:hover {
-    background: rgba(232, 62, 140, 0.9);
-    box-shadow: 0 5px 12px rgba(232, 62, 140, 0.25);
+  &:hover, &:focus {
+    box-shadow: 0 8px 20px rgba(232, 62, 140, 0.35);
     transform: scale(1.05);
+    border: none !important;
+    outline: none !important;
+    color: white !important;
   }
   
   svg {
@@ -717,8 +744,10 @@ const TertiaryButton = styled(ActionButton)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
     font-size: 0.9rem;
-    padding: 0.7rem 0.8rem;
+    padding: 0.7rem 1rem;
     letter-spacing: 0.3px;
+    text-align: center;
+    justify-content: center;
     
     svg {
       font-size: 0.9em;
@@ -873,7 +902,7 @@ export default function Projects() {
       id: 6,
       title: "Bella Cucina Restaurante",
       description: "Site responsivo para um restaurante italiano com seções de apresentação, cardápio interativo e formulário de contato.",
-      longDescription: "Bella Cucina é um site para um restaurante italiano, desenvolvido como parte do Projeto 3 da EBAC (Escola Britânica de Artes Criativas & Tecnologia). O projeto consiste em um site responsivo para divulgar o restaurante, exibir seu cardápio e permitir contato com os clientes.\n\nO site apresenta diversas seções integradas que proporcionam uma experiência completa aos visitantes: uma página inicial com uma introdução ao restaurante utilizando um carrossel de imagens e textos descritivos que transmitem a essência do local; uma seção de especialidades que destaca os pratos e bebidas que são diferenciais da casa; um cardápio detalhado e interativo organizado por categorias (bebidas, massas, pizzas e sobremesas); e um formulário de contato para que os clientes possam enviar mensagens e fazer reservas.\n\nO design do site foi cuidadosamente pensado para se adaptar a diferentes tamanhos de tela, garantindo uma experiência consistente tanto em dispositivos desktop quanto em tablets e smartphones. A navegação foi otimizada com recursos como rolagem suave entre seções e um menu mobile que facilita o acesso em dispositivos menores.\n\nO projeto foi desenvolvido utilizando HTML5 para a estruturação do conteúdo, CSS3 para a estilização dos elementos, JavaScript para adicionar interatividade e funcionalidades dinâmicas, e Bootstrap 5 como framework principal para garantir responsividade e consistência visual. Também foram utilizados os Bootstrap Icons para adicionar elementos visuais elegantes à interface.",
+      longDescription: "Bella Cucina é um site para um restaurante italiano, desenvolvido como parte do Projeto 3 da EBAC (Escola Britânica de Artes Criativas & Tecnologia). O projeto consiste em um site responsivo para divulgar o restaurante, exibir seu cardápio e permitir contato com os clientes.\n\nO site apresenta diversas seções integradas que proporcionam uma experiência completa aos visitantes: uma página inicial com uma introdução ao restaurante utilizando um carrossel de imagens e textos descritivos que transmitem a essência do local; uma seção de especialidades que destaca os pratos e bebidas que são diferenciais da casa; um cardápio detalhado e interativo organizado por categorias (bebidas, massas, pizzas e sobremesas); e um formulário de contato para que os clientes possam enviar mensagens e fazer reservas.\n\nO design do site foi cuidadosamente pensado para se adaptar a diferentes tamanhos de tela, garantindo uma experiência consistente tanto em dispositivos desktop quanto em tablets e smartphones. A navegação foi otimizada com recursos como rolagem suave entre seções e um menu mobile que facilita o acesso em dispositivos menores.\n\nO projeto foi desenvolvido utilizando HTML5 para a estruturao do conteúdo, CSS3 para a estilização dos elementos, JavaScript para adicionar interatividade e funcionalidades dinâmicas, e Bootstrap 5 como framework principal para garantir responsividade e consistência visual. Também foram utilizados os Bootstrap Icons para adicionar elementos visuais elegantes à interface.",
       image: "/assets/projects/projeto6/tela_inicial.png",
       gallery: [
         "/assets/projects/projeto6/tela_inicial.png",
@@ -1135,30 +1164,92 @@ export default function Projects() {
                         as="button"
                         onClick={handleOpenGallery}
                         aria-label="Ver Galeria"
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: '0 8px 20px rgba(232, 62, 140, 0.35)',
+                          transition: { duration: 0.2 }
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{ 
+                          gap: '0.8rem',
+                          border: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
                       >
-                        <FaImages /> Ver Galeria
+                        <FaImages style={{ marginRight: '0' }} /> 
+                        <span style={{ 
+                          display: 'flex', 
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          textAlign: 'center',
+                          color: 'white !important'
+                        }}>
+                          Ver Galeria
+                        </span>
                       </TertiaryButton>
                     )}
                     
-                  <PrimaryButton
-                    href={selectedProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FaExternalLinkAlt /> Ver Projeto
-                  </PrimaryButton>
+                    <PrimaryButton
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ 
+                        scale: 1.05, 
+                        boxShadow: '0 8px 20px rgba(75, 0, 130, 0.35)',
+                        transition: { duration: 0.2 }
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{ 
+                        gap: '0.8rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white'
+                      }}
+                    >
+                      <FaExternalLinkAlt style={{ marginRight: '0' }} /> 
+                      <span style={{ 
+                        display: 'flex', 
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        color: 'white !important'
+                      }}>
+                        Ver Projeto
+                      </span>
+                    </PrimaryButton>
                   </TopButtonsGroup>
                   
                   <SecondaryButton
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      boxShadow: '0 8px 20px rgba(75, 0, 130, 0.25)',
+                      transition: { duration: 0.2 }
+                    }}
                     whileTap={{ scale: 0.95 }}
+                    style={{ 
+                      gap: '0.8rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#4B0082'
+                    }}
                   >
-                    <FaGithub /> Ver Código
+                    <FaGithub style={{ marginRight: '0' }} /> 
+                    <span style={{ 
+                      display: 'flex', 
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      textAlign: 'center',
+                      color: '#4B0082 !important'
+                    }}>
+                      Ver Código
+                    </span>
                   </SecondaryButton>
                 </ModalActions>
               </ModalBody>
