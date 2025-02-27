@@ -377,6 +377,14 @@ const ModalActions = styled.div`
   gap: 1rem;
   margin-top: 2rem;
   
+  /* Estilos apenas para desktop e tablets */
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 0.6rem;
     margin-top: 1.5rem;
@@ -390,6 +398,12 @@ const TopButtonsGroup = styled.div`
   max-width: 500px;
   justify-content: center;
   margin: 0 auto;
+  
+  /* Estilos apenas para desktop */
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: auto;
+    margin: 0;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
@@ -460,6 +474,11 @@ const SecondaryButton = styled(ActionButton)`
   padding: 0.75rem 1.2rem;
   max-width: 220px;
   margin: 0 auto;
+  
+  /* Ajuste apenas para desktop */
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 0;
+  }
   
   &:hover, &:focus {
     box-shadow: 0 8px 20px rgba(75, 0, 130, 0.25);
