@@ -2,8 +2,6 @@
 
 Um portfólio profissional moderno e interativo, desenvolvido para apresentar meus projetos, habilidades e experiência como Desenvolvedor Full-Stack.
 
-![Portfólio Screenshot](public/assets/vectors/preview.png)
-
 ## Sobre o Projeto
 
 Este portfólio foi construído com foco em apresentar meu trabalho de forma elegante e profissional, demonstrando não apenas os projetos realizados, mas também as tecnologias que domino. O design moderno e as animações fluidas proporcionam uma experiência de usuário envolvente, com elementos interativos que destacam minhas habilidades técnicas.
