@@ -885,8 +885,8 @@ export default function Projects() {
         "/assets/projects/projeto5/entrega.png"
       ],
       tags: ["React", "TypeScript", "Redux Toolkit", "Styled Components", "RTK Query"],
-      githubUrl: "https://github.com/RodCinelli/efood-project",
-      liveUrl: "https://efood-project-demo.vercel.app",
+      githubUrl: "https://github.com/RodCinelli/Projeto-Final-Ebac-Efood",
+      liveUrl: "https://projeto-final-ebac-efood.vercel.app/",
       features: [
         "Listagem de restaurantes com filtragem por categorias culinárias",
         "Visualização detalhada de cardápios específicos de cada restaurante",
