@@ -877,8 +877,8 @@ export default function Projects() {
         "/assets/projects/projeto4/pagamento2.png"
       ],
       tags: ["Ionic", "Angular", "TypeScript", "Firebase", "Firestore"],
-      githubUrl: "https://github.com/RodCinelli/agenda-local",
-      liveUrl: "https://agenda-local-demo.com",
+      githubUrl: "https://github.com/RodCinelli/Projeto-Final-Agenda-Local",
+      liveUrl: "https://projeto-final-agenda-local.vercel.app/tabs/tab1",
       features: [
         "Visualização detalhada de eventos na cidade do Rio de Janeiro com filtros por categoria e data",
         "Sistema de compra de ingressos integrado diretamente no aplicativo",
